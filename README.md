@@ -62,6 +62,21 @@ npm run create-user -- jusu@pastas.lt 'slaptazodis'
 Viešame serveryje paleiskite programą už HTTPS (pvz., Caddy ar nginx). Per paprastą HTTP neveiks
 SHA-256 skaičiavimas, o slaptažodžiai keliautų nešifruoti.
 
+## Įkėlimas į Hostinger (FTP, PHP hostingas)
+
+Bendrame Hostinger hostinge Node.js neveikia, todėl yra PHP versija (`php/`) su tomis pačiomis
+funkcijomis. Įkėlimo paketą paruošia:
+
+```bash
+./scripts/build-hostinger.sh   # -> dist/lightroom-preset-decoder-hostinger.zip
+```
+
+Išarchyvuokite ir **visus** failus (kartu su paslėptu `.htaccess`) per FTP įkelkite tiesiai į
+subdomeno aplanką. Išsamios instrukcijos yra faile `php/SVARBU-PERSKAITYK.txt`. Reikia PHP 8.0+.
+Norėdami išjungti registraciją, nukopijuokite `config.sample.php` į `config.php`.
+
+Vietinis PHP versijos bandymas: `cd dist/hostinger && php -S localhost:8080 ../../php/router-dev.php`
+
 ## Kaip importuoti presetą
 
 - **Lightroom Classic:** Develop → „Presets“ skydelis → **+** → *Import Presets…*

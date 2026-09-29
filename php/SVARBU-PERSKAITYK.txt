@@ -1,0 +1,32 @@
+LIGHTROOM PRESET DECODER – ĮKĖLIMAS Į HOSTINGER (FTP)
+=====================================================
+
+1. Hostinger hPanel: Domains -> Subdomains -> sukurkite subdomeną
+   (pvz. presetai.jusudomenas.lt). Hostinger sukurs jam aplanką,
+   dažniausiai: public_html/presetai  (arba domains/.../public_html/presetai).
+
+2. Per FTP (FileZilla) arba hPanel "File Manager" įkelkite VISUS šio
+   archyvo failus TIESIAI į tą subdomeno aplanką (ne į poaplankį).
+   Turi būti matomi: index.php, .htaccess, app.html, login.html, css/, js/, vendor/ ...
+   DĖMESIO: .htaccess yra paslėptas failas – FileZilla: Server -> Force showing hidden files.
+
+3. hPanel -> Security -> SSL: įsitikinkite, kad subdomenas turi SSL (nemokamas).
+   .htaccess automatiškai nukreipia į https://.
+
+4. Atsidarykite https://presetai.jusudomenas.lt, spauskite "Registruotis" ir
+   susikurkite paskyrą.
+
+5. (Rekomenduojama) Kai susikursite savo paskyrą, uždrauskite kitiems registruotis:
+   nukopijuokite config.sample.php -> config.php ir pakeiskite
+       'allow_registration' => false,
+
+Duomenys (paskyros, išsaugoti presetai) saugomi aplanke data/, kuris sukuriamas
+automatiškai ir yra apsaugotas nuo tiesioginio atsisiuntimo.
+Nuotraukos į serverį NEKELIAMOS – jos analizuojamos tik naršyklėje.
+
+Reikalavimai: PHP 8.0 ar naujesnis (hPanel -> Advanced -> PHP Configuration).
+
+Jei atsidaro tuščias puslapis arba klaida "500":
+ - patikrinkite PHP versiją (turi būti 8.x);
+ - jei SSL dar neįjungtas, .htaccess faile laikinai užkomentuokite (# ženklu)
+   3 eilutes po "# Force HTTPS".
