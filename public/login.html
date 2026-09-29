@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prisijungimas · Preset Decoder</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/login.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="brand brand-lg">
+      <img src="/favicon.svg" alt="" width="40" height="40">
+      <div>
+        <h1>Preset Decoder</h1>
+        <p class="muted">Atkurkite Lightroom presetą iš savo nuotraukos</p>
+      </div>
+    </div>
+
+    <div class="segmented" role="tablist">
+      <button type="button" role="tab" id="tab-login" aria-selected="true">Prisijungti</button>
+      <button type="button" role="tab" id="tab-register" aria-selected="false">Registruotis</button>
+    </div>
+
+    <form id="auth-form" novalidate>
+      <label class="field">
+        <span>El. paštas</span>
+        <input type="email" name="email" autocomplete="email" required autofocus>
+      </label>
+      <label class="field">
+        <span>Slaptažodis</span>
+        <input type="password" name="password" autocomplete="current-password" required minlength="8">
+      </label>
+      <label class="field" id="confirm-field" hidden>
+        <span>Pakartokite slaptažodį</span>
+        <input type="password" name="confirm" autocomplete="new-password" minlength="8">
+      </label>
+      <p id="auth-error" class="form-error" role="alert"></p>
+      <button type="submit" class="btn primary block" id="auth-submit">Prisijungti</button>
+    </form>
+
+    <p class="muted small auth-note">
+      Nuotraukos analizuojamos tik jūsų naršyklėje – jos niekur neįkeliamos.
+      Serveryje saugoma tik paskyra ir jūsų išsaugoti presetai.
+    </p>
+  </main>
+</body>
+</html>

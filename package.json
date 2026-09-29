@@ -1,0 +1,17 @@
+{
+  "name": "lightroom-preset-decoder",
+  "version": "1.0.0",
+  "description": "Web app that reads all photo metadata (EXIF, XMP, IPTC, ICC, GPS) and rebuilds the Lightroom develop preset embedded in the photo.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "create-user": "node server/cli.js create-user",
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT"
+}

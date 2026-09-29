@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preset Decoder</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/favicon.svg" alt="" width="28" height="28">
+      <strong>Preset Decoder</strong>
+    </div>
+    <nav class="topnav" aria-label="Skiltys">
+      <button type="button" class="navbtn" data-view="decoder" aria-current="page">Nuotraukos</button>
+      <button type="button" class="navbtn" data-view="library">Mano presetai</button>
+    </nav>
+    <div class="account">
+      <span id="user-email" class="muted"></span>
+      <button type="button" class="btn ghost small" id="btn-password">Keisti slaptažodį</button>
+      <button type="button" class="btn ghost small" id="btn-logout">Atsijungti</button>
+    </div>
+  </header>
+
+  <main id="view-decoder" class="layout">
+    <aside class="sidebar">
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="file-input" multiple
+               accept="image/*,.jpg,.jpeg,.tif,.tiff,.dng,.xmp,.heic,.heif,.avif,.png,.webp,.cr2,.cr3,.nef,.arw,.raf,.orf,.rw2,.pef,.srw">
+        <span class="dz-icon" aria-hidden="true">＋</span>
+        <strong>Įkelkite nuotraukas</strong>
+        <span class="muted small">JPG, TIFF, DNG, HEIC, PNG, RAW arba .xmp šalutinis failas. Galima kelias iš karto.</span>
+      </label>
+      <div class="sidebar-actions">
+        <button type="button" class="btn small" id="btn-zip" disabled>Visi presetai (.zip)</button>
+        <button type="button" class="btn ghost small" id="btn-clear" disabled>Išvalyti</button>
+      </div>
+      <ul class="filelist" id="file-list" aria-label="Įkeltos nuotraukos"></ul>
+    </aside>
+    <section class="content" id="content" aria-live="polite"></section>
+  </main>
+
+  <main id="view-library" class="library" hidden></main>
+
+  <dialog id="password-dialog">
+    <form method="dialog" id="password-form" class="dialog-body">
+      <h2>Keisti slaptažodį</h2>
+      <label class="field"><span>Dabartinis slaptažodis</span>
+        <input type="password" name="currentPassword" autocomplete="current-password" required></label>
+      <label class="field"><span>Naujas slaptažodis (bent 8 simboliai)</span>
+        <input type="password" name="newPassword" autocomplete="new-password" minlength="8" required></label>
+      <p class="form-error" id="password-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn ghost" value="cancel" id="password-cancel">Atšaukti</button>
+        <button type="submit" class="btn primary" value="save">Išsaugoti</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
